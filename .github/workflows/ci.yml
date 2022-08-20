@@ -1,0 +1,18 @@
+name: "CI (Continuous Integration): First Action"
+
+on:
+  pull_request:
+    types: [opened, synchronize]
+
+jobs:
+  linter: 
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+
+      - name: Install
+        run: yarn install
+
+      - name: Run Linter
+        run: yarn lint
+
